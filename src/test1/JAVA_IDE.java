@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.AbstractButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -43,6 +44,7 @@ public class JAVA_IDE extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+	
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -174,7 +176,7 @@ public class JAVA_IDE extends JFrame {
 				
 				Cmd cmd = new Cmd();
 				try {
-					String command = cmd.inputCommand("cd C:\\Users\\phil5\\eclipse-workspace\\Myjava"+" && "+"javac "+fileName);
+					String command = cmd.inputCommand("cd C:\\Download"+" && "+"javac "+fileName);
 					cmd.execCommand(command);
 					OutputArea.setText("컴파일성공");
 				}catch(Exception e1) {
@@ -199,7 +201,7 @@ public class JAVA_IDE extends JFrame {
 				String fileName = ClassName();
 				Cmd cmd = new Cmd();
 				try {
-					String command = cmd.inputCommand("cd C:\\Users\\phil5\\eclipse-workspace\\Myjava"+" && "+"java "+fileName);
+					String command = cmd.inputCommand("cd C:\\Download"+" && "+"java "+fileName);
 					String result = cmd.execCommand(command);
 					OutputArea.setText(result);
 				}catch(Exception e1) {
@@ -213,6 +215,18 @@ public class JAVA_IDE extends JFrame {
 			}
 		});
 		mnNewMenu_2.add(mntmNewMenuItem_6);
+		
+		JMenu mnNewMenu_3 = new JMenu("\uAC1C\uBC1C\uC790");
+		menuBar.add(mnNewMenu_3);
+		
+		JMenuItem mntmNewMenuItem_9 = new JMenuItem("\uC815\uBCF4");
+		mntmNewMenuItem_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new newChang();
+				
+			}
+		});
+		mnNewMenu_3.add(mntmNewMenuItem_9);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -247,6 +261,28 @@ public class JAVA_IDE extends JFrame {
 			}
 		}
 		return className;
+		
+	}
+	public class newChang extends JFrame{
+		newChang(){
+			setTitle("개발자 정보");
+			JPanel newChangContainer = new JPanel();
+			setContentPane(newChangContainer);
+			
+			JLabel NewLabel = new JLabel("황대윤 학번:183631");
+			JLabel NewLabe2 = new JLabel("김기혁 학번:183903");
+			
+
+			newChangContainer.add(NewLabel);
+			newChangContainer.add(NewLabe2);
+			
+			setSize(300,100);
+	        setResizable(false);
+	        setVisible(true);
+
+			
+		}
+		
 		
 	}
 

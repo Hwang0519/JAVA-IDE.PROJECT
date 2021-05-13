@@ -26,9 +26,13 @@ public class FileUtil {
 	}
 	
 
+
+	
+
 public static void save(StringBuffer data, String file) {
 	try {
-		PrintWriter out = new PrintWriter(new FileWriter(file));
+		
+		PrintWriter out = new PrintWriter(new FileWriter("C:\\Download\\"+file));
 		out.print(data.toString());
 		out.close();
 	}catch(Exception e) {
